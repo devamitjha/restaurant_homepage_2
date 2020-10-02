@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Website Homepage</title>
+  <link rel="stylesheet" href="css/font.css" />
+  <link rel="stylesheet" href="css/font-awesome.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/jquery3.1.0.min.js"></script>
+  <script src="js/gsap.min.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="bg bg_1" id="bg_1"></div>
+    <div class="bg bg_2" id="bg_2"></div>
+    <div class="bg bg_3" id="bg_3"></div>
+    <div class="bg bg_4" id="bg_4"></div>
+
+    <header>
+      <div class="logo">Restaurant</div>
+      <nav>
+        <ul>
+          <li class="active">Home</li>
+          <li>Menu</li>
+          <li>About</li>
+          <li>Location</li>
+          <li>Contact</li>
+        </ul>
+        <div class="search">
+          <span><i class="fa fa-search"></i></span>
+          <span><i class="fa fa-bars"></i></span>
+        </div>
+      </nav>
+    </header>
+    <div class="social">
+      <a href="#"><i class="fa fa-facebook"></i></a>
+      <a href="#"><i class="fa fa-twitter"></i></a>
+      <a href="#"><i class="fa fa-instagram"></i></a>
+    </div>
+    <div class="slider_dot">
+      <span class="active"></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="content_">
+      <h3>Are you hungry?</h3>
+      <h1>Don't wait!</h1>
+      <h6>lets start to order food now</h6>
+      <a class="cta" href="#">Check out menu</a>
+    </div>
+    <div class="dish_">
+      <img src="images/main.png">
+    </div>
+    <div class="footer_item">
+      <div class="page_info">
+        <div class="info">
+          <i class="fa fa-circle"></i>
+          <span>This UI design is based on <br>Food Inspiration</span>
+        </div>
+        <div class="info">
+          <div class="info_img">
+            <img src="images/sample_2.jpg">
+          </div>
+          <span>This UI design is based on <br>Food Inspiration</span>
+        </div>
+      </div>
+      <div class="review">
+        <span class="number_">38</span>
+        <span>Review <br>Write a Review>></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const banner = document.querySelector("#bg_1");
+    const banner_1 = document.querySelector("#bg_2");
+    const banner_2 = document.querySelector("#bg_3");
+    const banner_3 = document.querySelector("#bg_4");
+
+    const effect_1 = document.querySelector(".content_ h3");
+    const effect_2 = document.querySelector(".content_ h1");
+    const effect_3 = document.querySelector(".content_ h6");
+    const cta = document.querySelector(".cta");
+
+    const info = document.querySelectorAll(".info");
+    const review = document.querySelector(".review");
+
+    const social = document.querySelectorAll(".social a");
+    const slider_dot = document.querySelectorAll(".slider_dot span");
+
+    const foodTL = gsap.timeline();
+
+    foodTL
+      .from([banner, banner_1, banner_2], {
+        duration: 1.2,
+        width: 0,
+        ease: "power3.inOut",
+        stagger: {
+          amount: .01
+        }
+      })
+      .from(banner_3, {
+        delay: -0.8,
+        width: 0,
+        opacity: 0,
+        duration: 1,
+        ease: "power3.inOut"
+      })
+      .from(".dish_", {
+        x: 100,
+        delay: -0.2,
+        opacity: 0,
+        ease: "power3.inOut"
+      })
+      .from("header", {
+        delay: -0.5,
+        y: -16,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.inOut"
+      })
+
+      .from([effect_1, effect_2, effect_3, cta, info, review], {
+        delay: -0.1,
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.inOut",
+        stagger: {
+          amount: .8
+        }
+      })
+
+      .from([social, slider_dot], {
+        delay: -0.6,
+        x: 16,
+        opacity: 0,
+        duration: 0.3,
+        ease: "power3.inOut",
+        stagger: {
+          amount: .5
+        }
+      })
+
+      //thanks for watching
+      //please subscribe my channel
+  </script>
+
+</body>
+
+</html>
